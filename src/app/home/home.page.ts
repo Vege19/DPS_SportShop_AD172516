@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  //arreglo de imagenes obtenidas desde firebase
+  slideData = [{}] 
 }
