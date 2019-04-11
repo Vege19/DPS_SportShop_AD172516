@@ -9,12 +9,15 @@
   </ion-toolbar>
 </ion-header>
 
+<!--El arreglo que muestra el slider 
+  son las url de las imagenes obtenidas 
+  de la coleccion de imagenes en firebase-->
 <ion-content>
   <ion-slides pager="true">
     <ion-slide *ngFor="let slide of slideData">
       <div class="slide-content">
         <div class="image-wrap">
-          <ion-img [src]="slide.image"></ion-img>
+          <ion-img [src]="slide"></ion-img>
         </div>
       </div>
     </ion-slide>
