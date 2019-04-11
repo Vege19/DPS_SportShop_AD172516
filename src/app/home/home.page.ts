@@ -8,14 +8,14 @@ import { Imagenes, ImagenesService } from '../services/imagenes.service';
 })
 export class HomePage implements OnInit {
   //arreglo de imagenes obtenidas desde firebase
-  slideData: String[];
+  slideData: Imagenes[];
 
   constructor(private imagenesService: ImagenesService) {}
 
   ngOnInit() {
     this.imagenesService.getImagenes().subscribe(res => {
-      //se obtiene el atributo de img_url y se guarda en un arreglo de strings
-      this.slideData = res.map(({image_url}) => image_url);
+      //se obtiene el atributo y se guarda en un arreglo de strings
+      this.slideData = res;
       console.log("error", this.slideData);
     });
   }

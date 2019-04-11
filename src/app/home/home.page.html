@@ -12,12 +12,13 @@
 <!--El arreglo que muestra el slider 
   son las url de las imagenes obtenidas 
   de la coleccion de imagenes en firebase-->
-<ion-content>
+<ion-content class="ion-padding">
   <ion-slides pager="true">
     <ion-slide *ngFor="let slide of slideData">
-      <div class="slide-content">
-        <div class="image-wrap">
-          <ion-img [src]="slide"></ion-img>
+      <div>
+        <div>
+          <ion-label>{{slide.titulo}}</ion-label>
+          <ion-img [src]="slide.image_url" class="ion-padding"></ion-img>
         </div>
       </div>
     </ion-slide>

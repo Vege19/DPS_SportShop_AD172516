@@ -7,6 +7,8 @@ import { map } from 'rxjs/operators';
 
 export interface Imagenes {
   image_url: string;
+  titulo: string;
+  
 }
 
 @Injectable({
