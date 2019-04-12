@@ -18,6 +18,11 @@ export class AppComponent {
     {
       title: 'Productos',
       url: '/list',
+      icon: 'pricetag'
+    },
+    {
+      title: 'Carrito',
+      url: '/carrito',
       icon: 'cart'
     }
   ];

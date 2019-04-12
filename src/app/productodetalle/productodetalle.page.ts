@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Productos, ProductoServiceService } from '../services/producto-service.service';
+import { Carrito, CarritoService } from '../services/carrito.service';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
 
@@ -19,12 +20,18 @@ export class ProductodetallePage implements OnInit {
     category: null
   };
 
+  carrito: Carrito = {
+    product: null,
+    price: null
+  };
+
   productoId = null;
 
   constructor(private route: ActivatedRoute,
-     private nav: NavController,
-     private productoService: ProductoServiceService,
-     private loadingController: LoadingController) { }
+    private nav: NavController,
+    private productoService: ProductoServiceService,
+    private carritoService: CarritoService,
+    private loadingController: LoadingController) { }
 
   ngOnInit() {
     this.productoId = this.route.snapshot.params['id'];
@@ -45,9 +52,25 @@ export class ProductodetallePage implements OnInit {
     this.productoService.getProducto(this.productoId).subscribe(res => {
       loading.dismiss();
       this.producto = res;
+      this.carrito.product = this.producto.title;
+      this.carrito.price = this.producto.price;
       console.log("error", res);
 
     });
+  }
+
+  async saveCarrito() {
+    const loading = await this.loadingController.create({
+      message: 'Agregando...'
+    });
+
+    await loading.present();
+
+    this.carritoService.addCarrito(this.carrito).then(() => {
+      loading.dismiss();
+    })
+  
+
   }
 
 

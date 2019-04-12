@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   { path: 'productodetalle/:id', loadChildren: './productodetalle/productodetalle.module#ProductodetallePageModule' },
   { path: 'productodetalle', loadChildren: './productodetalle/productodetalle.module#ProductodetallePageModule' },
-  { path: 'detalle', loadChildren: './detalle/detalle.module#DetallePageModule' }
+  { path: 'detalle', loadChildren: './detalle/detalle.module#DetallePageModule' },  { path: 'carrito', loadChildren: './carrito/carrito.module#CarritoPageModule' }
+
 
 
 ];
