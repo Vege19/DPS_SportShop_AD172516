@@ -4,24 +4,22 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      Productos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
+  <ion-list *ngFor="let product of products">
+    <ion-item>
+      <ion-thumbnail slot="start">
+          <ion-img [src]="product.img"></ion-img>
+      </ion-thumbnail>
+      <ion-col>
+          <ion-label>{{product.title}}</ion-label>
+          <ion-label>${{product.price}}</ion-label>
+      </ion-col>
+      <ion-button slot="end">Ver</ion-button>
     </ion-item>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>

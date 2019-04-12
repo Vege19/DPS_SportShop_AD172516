@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Productos, ProductoServiceService } from '../services/producto-service.service';
 
 @Component({
   selector: 'app-list',
@@ -6,28 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  
+  products: Productos[];
+
+  constructor(private productoService: ProductoServiceService) {
+    this.productoService.getProductos().subscribe(res => {
+      //se obtiene el atributo y se guarda en un arreglo de strings
+      this.products = res;
+      console.log("error", this.products);
+    });
   }
 
   ngOnInit() {
