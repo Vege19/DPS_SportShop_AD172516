@@ -6,6 +6,7 @@ import { Action } from 'rxjs/internal/scheduler/Action';
 import { map } from 'rxjs/operators';
 
 export interface Productos {
+  id?: string;
   title: string;
   img: string;
   price: number;
@@ -38,4 +39,9 @@ export class ProductoServiceService {
      return this.productos;
 
    }
+
+   getProducto(id) {
+    return this.productosCollection.doc<Productos>(id).valueChanges();
+
+  }
 }

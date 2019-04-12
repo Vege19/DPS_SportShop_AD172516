@@ -12,7 +12,6 @@ export class ListPage implements OnInit {
 
   constructor(private productoService: ProductoServiceService) {
     this.productoService.getProductos().subscribe(res => {
-      //se obtiene el atributo y se guarda en un arreglo de strings
       this.products = res;
       console.log("error", this.products);
     });

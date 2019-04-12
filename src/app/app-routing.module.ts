@@ -14,7 +14,12 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'productodetalle/:id', loadChildren: './productodetalle/productodetalle.module#ProductodetallePageModule' },
+  { path: 'productodetalle', loadChildren: './productodetalle/productodetalle.module#ProductodetallePageModule' },
+  { path: 'detalle', loadChildren: './detalle/detalle.module#DetallePageModule' }
+
+
 ];
 
 @NgModule({
